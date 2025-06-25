@@ -5,12 +5,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1"><!-- /는 폴더 가르킨다는 뜻, .는 현재 폴더 안에서 가져온다는 뜻, ..은 부모폴더-->
     <title>NAVER</title>
     <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+
         #wrap{
             text-align: center;
         }
         #wrap-center{
             width: 1280px;
+            display: inline-block;
             background-color: yellow;
+        }
+        #hamburger{
+            margin-top: 18px;
+            background-color: blue;
+            width: 46px;
+            height: 46px;
         }
         #main{
             height: 2000px;
@@ -20,7 +32,11 @@
 <body><!-- 대부분 주요 내용 있음 -->
     <div id="wrap"><!-- id:겹치면x/이름 붙임 -->
         <div id="wrap-center"><!-- 공백 없어야 함 -->
-            <div id="header"></div>
+            <div id="header">
+                <div id="hamburger">
+
+                </div>
+            </div>
             <div id="search"></div>
             <div id="nav"></div>
             <div id="main"></div>
