@@ -70,7 +70,10 @@
             --color_dic_rgb: 3, 31, 95;
             --color_shop: #9858f5;
             --color_shop_rgb: 152, 88, 245;
-}
+        }
+        * {
+            box-sizing: border-box;
+        }
         html,body{
             margin: 0;
             padding: 0;
@@ -88,10 +91,9 @@
             text-align: left;
             position: relative;
         }
-        #header-hamburger{
+        #header-hamburger, #header-notice, #header-naverpay{
             position: absolute;
             top: 5px;
-            left: -12px;
             padding: 10px;
             display: inline-block;
             background: none;
@@ -99,7 +101,7 @@
             cursor: pointer;
            
         }
-        #header-hamburger:hover::before{
+        #header-hamburger:hover::before, #header-notice:hover::before, #header-naverpay:hover::before{
             position: absolute;
             content:'';
             z-index:0;
@@ -110,8 +112,8 @@
             background-color: var(--color_option_bg);
             border-radius: 50%;
         }
-
-        #header-hamburger > div {
+        
+        #header-hamburger > div, #header-notice > div, #header-naverpay > div{
             background-image: url(./sp_main.png);
             width: 35px;
             height: 35px;
@@ -119,7 +121,30 @@
             z-index: 1;
             background-repeat: no-repeat;
             background-size: 463px 442px;
+        }
+        #header-hamburger{
+            left: -12px;
+        }
+
+        #header-hamburger > div {
             background-position: -311px -166px;
+        }
+
+        #header-naverpay{
+            right: 42px;
+            padding: 10px 8px;           
+        }
+
+        #header-naverpay > div {
+            background-position: -247px -259px;
+        }
+
+        #header-notice{
+            right: -10px;
+        }
+
+        #header-notice > div {
+            background-position: -310px -230px;
         }
         #main{
             height: 2000px;
@@ -139,6 +164,18 @@
         <div id="wrap-center"><!-- 공백 없어야 함 -->
             <div id="header">
                 <button id="header-hamburger">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-naverpay">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-notice">
                     <!-- ::before -->
                     <div></div>
                     <span class="blind">확장 영역</span>
