@@ -102,29 +102,35 @@
         #header-hamburger:hover::before{
             position: absolute;
             content:'';
-            left: -4px;
-            top: -2px;
+            z-index:0;
+            left: 3px;
+            top: 4px;
             width: 44px;
             height: 44px;
             background-color: var(--color_option_bg);
             border-radius: 50%;
-            padding: 9px;
         }
-        #header-hamburger:hover > div{
-            position: relative;
-            left: 1px;
-            top: 1px;
-        }
+
         #header-hamburger > div {
             background-image: url(./sp_main.png);
             width: 35px;
             height: 35px;
+            position: relative;
+            z-index: 1;
             background-repeat: no-repeat;
             background-size: 463px 442px;
             background-position: -311px -166px;
         }
         #main{
             height: 2000px;
+        }
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -133,7 +139,10 @@
         <div id="wrap-center"><!-- 공백 없어야 함 -->
             <div id="header">
                 <button id="header-hamburger">
+                    <!-- ::before -->
                     <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!-- ::after -->
                 </button>
             </div>
             <div id="search"></div>
@@ -143,3 +152,10 @@
     </div>
 </body>
 </html>
+
+<!--position
+-static: 기본/왼쪽,위부터 쌓임 
+-relative: 제자리걸음/다른 것과 겹칠수도 있음
+-absolute: 조상중 static 아닌것 기준(다 static이면 body 기준)
+-fixed: 스크롤 움직여도 고정 
+-stiky:스크롤 움직이면 어느 구간부터 fixed -->
