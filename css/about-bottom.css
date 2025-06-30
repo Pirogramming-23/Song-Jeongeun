@@ -1,0 +1,103 @@
+.about-bottom {
+    background-color:#f5f6f8;
+    padding: 60px 0;
+}
+.about-bottom .container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:400px;
+    max-width:1320px;
+    margin: 0 auto;
+    padding:0 40px;
+}
+.about-bottom .container .ab-contents {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.ab-left {
+    width:50%
+}
+.ab-right {
+    width:45%;
+    text-align:right;
+}
+.title {
+    font-size:32px;
+    color:#37517e;
+}
+.title span {
+    font-weight:800;
+    display:inline-block;
+}
+.title-des {
+    color:#444444;
+    margin:20px 0;
+}
+.items {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+.item {
+    background:white;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0, 0, 0, 0.05);
+    position:relative;
+}
+.item input[type="checkbox"] {
+    display:none;
+}
+.item label {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.2rem 1rem;
+    cursor:pointer;
+    font-weight:600;
+}
+.item label h3 {
+    font-size:1rem;
+    display:flex;
+    align-items:center;
+    margin:0;
+    gap:10px;
+    color:#37517e;
+}
+.item label h3 span {
+    color:#47b2e4;
+    font-weight:bold;
+}
+.item label h3:hover {
+    color:#47b2e4;
+}
+.item label svg:hover {
+    color:#47b2e4;
+}
+
+.item div[class*="-body"] {
+    max-height:0;
+    overflow:hidden;
+    padding:0 1rem;
+    transition:max-height 0.3s ease, padding 0.3 ease;
+    color:black;
+    font-size:0.95rem;
+    line-height:1.6;
+} 
+.item input:checked ~ div[class*="-body"] {
+    max-height:300px;
+    padding-bottom:1rem;
+}
+.item input:checked + label svg {
+    transform:rotate(90deg);
+    color:#47b2e4;
+}
+.item input:checked + label h3 {
+    color:#47b2e4;
+}
+.ab-right img{
+    width:100%;
+    height:auto;
+}

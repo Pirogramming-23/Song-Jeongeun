@@ -1,0 +1,27 @@
+.logo-slider {
+    overflow:hidden;
+    background-color:#f5f6f8;
+    padding: 1rem 0;
+    width:100%;
+    height:80px;
+}
+.logo-track {
+    display:flex;
+    animation:scrollLogos 16s steps(16) infinite;
+    gap:60px;
+}
+
+.logo-track img {
+    flex:0 0 270px;
+    height:40px;
+    object-fit:contain;
+}
+
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform:translateX(-1320px);
+    }
+}
