@@ -1,0 +1,860 @@
+/* Fonts */
+:root {
+  --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Jost",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #37517e; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #47b2e4; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f5f6f8;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #37517e;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #4668a2;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 60px !important;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.section-title h2:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 160px;
+  height: 1px;
+  background: color-mix(in srgb, var(--default-color), transparent 60%);
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  margin: auto;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+/*--------------------------------------------------------------
+# team
+-----------------------------------------------------------------*/
+/*container추가*/
+.container {
+  max-width: 1200px;     /* 혹은 1140px */
+  margin: 0 auto;        /* 가운데 정렬 */
+  padding: 0 15px;       /* 좌우 여백 */
+  box-sizing: border-box;
+}
+
+/* Bootstrap row 대체 */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* gy-4 대체용, 세로 간격 1.5rem */
+}
+
+/* Bootstrap col-lg-6 대체 */
+.col-lg-6 {
+  width: 100%; /* 모바일 기준 1열 */
+}
+
+/* 데스크탑 이상에서 2열 */
+@media (min-width: 992px) {
+  .col-lg-6 {
+    width: calc(50% - 15px); /* gap의 절반 보정 */
+  }
+}
+
+
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  color: #666666	;
+}
+
+
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  fill: gray ;
+  transition: filter 0.3s ease, invert 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #47b2e4; /* 파랑 배경 */
+  border-radius: 50%;
+  fill: white; /* 아이콘 색상은 흰색 */
+}
+
+.social a:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+/*삭제*/
+.social a:hover .social-icon {
+  filter: brightness(10)invert(1);
+}
+
+
+
+/*상자크기*/
+.team .team-member {
+  background-color: var(--surface-color);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: auto;
+}
+
+@media (max-width: 468px) {
+  .team .team-member {
+    flex-direction: column;
+    justify-content: center !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+}
+
+/*사진 크기*/
+.team .team-member .pic {
+  overflow: hidden;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*확인-첫줄만?*/ 
+.team .team-member .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+.team .team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/*사진, 설명 간격*/
+.team .team-member .member-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-left: 30px ;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 468px) {
+  .team .team-member .member-info {
+    padding: 30px 0 0 0;
+    text-align: center;
+  }
+}
+
+.team .team-member h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team .team-member span {
+  display: block;
+  font-size: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team .team-member span::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: color-mix(in srgb, var(--default-color), transparent 85%);
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 468px) {
+  .team .team-member span::after {
+    left: calc(50% - 25px);
+  }
+}
+
+.team .team-member p {
+  max-width: 100% ;
+  line-height: 1.4;
+  word-break: keep-all;
+  white-space: normal;
+}
+
+.team .team-member .social {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+
+}
+
+@media (max-width: 468px) {
+  .team .team-member .social {
+    justify-content: center;
+  }
+}
+
+.team .team-member .social a {
+  background: color-mix(in srgb, var(--default-color), transparent 94%);
+  transition: background-colors 0.3s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+
+.team .team-member .social a:hover {
+  background: var(--accent-color);
+}
+
+.team .team-member .social a+a {
+  margin-left: 8px;
+}
+
+.team .team-member .social-icon {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.3s ease;
+  fill: #555555;
+}
+
+.team .team-member .social a:hover .social-icon {
+  fill: #ffffff;
+}
+
+#team {
+  padding-top: 100px;   /* 위쪽 여백 */
+  padding-bottom: 60px; /* 아래쪽도 약간 여유 있게 */
+}
+
+.team {
+  padding-top: 60px;
+}
+
+
+
+
+/*pricing*/
+
+/*--------------------------------------------------------------
+# Pricing Section
+--------------------------------------------------------------*/
+.pricing .pricing-item {
+  padding: 0;  /* 내부 여백 없음 */
+  background: none;
+  box-shadow: none;
+  border-top: none;
+}
+
+
+.pricing-box h3 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.pricing-box h4 {
+  color: var(--accent-color);
+  font-size: 48px;
+  font-weight: 400;
+  font-family: var(--heading-font);
+  margin-bottom: 0;
+}
+
+.pricing h4 sup {
+  font-size: 28px;
+}
+
+.pricing h4 span {
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 18px;
+}
+
+.pricing ul {
+  padding: 20px 0;
+  list-style: none;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  text-align: left;
+  line-height: 20px;
+}
+
+.pricing ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.pricing ul i {
+  color: #059652;
+  font-size: 24px;
+  padding-right: 3px;
+}
+
+.pricing ul .na {
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+}
+
+.pricing ul .na i {
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+}
+
+.pricing ul .na span {
+  text-decoration: line-through;
+}
+
+.pricing .buy-btn {
+  color: var(--accent-color);
+  display: inline-block;
+  padding: 7px 35px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--heading-font);
+  transition: 0.3s;
+  border: 1px solid var(--accent-color);
+  max-width: fit-content;
+}
+
+.pricing .buy-btn:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.pricing .featured {
+  border-top-color: var(--accent-color);
+}
+
+.pricing .featured .buy-btn {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.pricing-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* 위-아래 균형 */
+  min-height: 100%;                /* 높이 맞추기 (부모가 높이 가질 때) */
+  padding: 40px 30px;
+  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: var(--surface-color);
+  border-top: 4px solid var(--background-color);
+  transition: transform 0.3s ease;
+}
+.pricing-box:hover {
+  transform: translateY(-5px);
+}
+.pricing-box .buy-btn {
+  margin-top: auto;
+}
+
+
+@media (max-width: 992px) {
+  .pricing-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .pricing-box {
+    width: 90%;
+    margin: 0 !important;
+    margin-bottom: 30px;
+  }
+}
+
+.pricing-box.featured {
+  border-top: 4px solid var(--accent-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Testimonials Section
+--------------------------------------------------------------*/
+
+
+.testimonials .section-header {
+  margin-bottom: 40px;
+}
+
+.testimonials .testimonials-carousel,
+.testimonials .testimonials-slider {
+  overflow: hidden;
+}
+
+.testimonials .testimonial-item {
+  text-align: center;
+}
+
+.testimonials .testimonial-item .testimonial-img {
+  width: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--background-color);
+  margin: 0 auto;
+}
+
+.testimonials .testimonial-item h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+}
+
+.testimonials .testimonial-item h4 {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin: 0 0 15px 0;
+}
+
+.testimonials .testimonial-item .stars {
+  margin-bottom: 15px;
+}
+
+.testimonials .testimonial-item .stars i {
+  color: #ffc107;
+  margin: 0 1px;
+}
+
+.testimonials .testimonial-item .quote-icon-left,
+.testimonials .testimonial-item .quote-icon-right {
+  color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-size: 26px;
+  line-height: 0;
+}
+
+.testimonials .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.testimonials .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+  transform: scale(-1, -1);
+}
+
+.testimonials .testimonial-item p {
+  font-style: italic;
+  margin: 0 auto 15px auto;
+}
+
+.testimonials .swiper-wrapper {
+  height: auto;
+}
+
+.testimonials .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+@media (min-width: 992px) {
+  .testimonials .testimonial-item p {
+    width: 80%;
+  }
+}
+
+.testimonials-carousel {
+  width: 100vw;
+  overflow: hidden;
+  
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  width: calc((100vw + 20px) * 5);
+  animation: slide 20s ease-in-out infinite;
+}
+
+.testimonial-item {
+  flex: 0 0 100vw;
+  width: 100vw;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-right: 20px;
+  max-width: 100vw !important;
+  min-width: 100vw;
+  flex-shrink: 0;
+
+  
+  text-align: center;
+  padding: 40px;
+  
+  transition: transform 0.5s ease-in-out;
+  background: #fff;
+
+}
+
+@keyframes slide {
+  0%    { transform: translateX(0%); }
+  16%   { transform: translateX(0%); }
+
+  20%   { transform: translateX(-20%); }
+  36%   { transform: translateX(-20%); }
+
+  40%   { transform: translateX(-40%); }
+  56%   { transform: translateX(-40%); }
+
+  60%   { transform: translateX(-60%); }
+  76%  { transform: translateX(-60%); }
+
+  80%   { transform: translateX(-80%); }
+  96%  { transform: translateX(-80%); }
+
+  100%  { transform: translateX(0%); }
+
+}
+
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.carousel-pagination .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  pointer-events: none; /* 클릭 불가 */
+}
+
+.container {
+  width: 100vw;
+  max-width: 100vw;
+  padding: 0;
+  margin: 0 auto;
+}
+
+
+/*--------------------------------------------------------------
+# Faq 2 Section
+--------------------------------------------------------------*/
+#faq-2 {
+  background-color: #f5f6f8; /* 원하는 배경색 */
+  padding: 60px 0;
+}
+
+.faq-2 .faq-container {
+  margin-top: 15px;
+}
+
+.faq-2 .faq-container .faq-item {
+  background-color: var(--surface-color);
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.faq-2 .faq-container .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.faq-2 .faq-container .faq-item h3 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 30px 0 32px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.faq-2 .faq-container .faq-item h3 span {
+  color: var(--accent-color);
+  padding-right: 5px;
+}
+
+.faq-2 .faq-container .faq-item h3:hover {
+  color: var(--accent-color);
+}
+
+
+.faq-2 .faq-container .faq-item .faq-content p {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.faq-2 .faq-container .faq-item .faq-icon {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  font-size: 20px;
+  line-height: 0;
+  transition: 0.3s;
+  color: var(--accent-color);
+}
+
+.faq-2 .faq-container .faq-item .faq-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 16px;
+  line-height: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.faq-2 .faq-container .faq-item .faq-toggle:hover {
+  color: var(--accent-color);
+}
+
+.faq-2 .faq-container .faq-active h3 {
+  color: var(--accent-color);
+}
+
+.faq-2 .faq-container .faq-active .faq-content {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  opacity: 1;
+  padding-top: 10px;
+}
+
+.faq-2 .faq-container .faq-active .faq-toggle {
+  transform: rotate(90deg);
+  color: var(--accent-color);
+}
+
+
+.faq-toggle-checkbox {
+  display: none;
+}
+
+.faq-question {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
+  position: relative;
+  gap: 5px !important;
+  padding: 10px 14px !important;
+  
+}
+
+.faq-question svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle !important;           /* 약간 내려서 정렬 조정 (원하는 경우) */
+}
+
+.faq-question h3 {
+
+  margin: 0;
+  font-size: 16px;  
+  line-height: 1.2;
+
+  
+  display: flex;
+  align-items: center;
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  padding: 0 20px;
+  padding: 0 20px;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+
+.faq-toggle {
+  transition: transform 0.3s ease;
+}
+
+/* 핵심! 토글 열릴 때만 실행되는 선택자 */
+.faq-toggle-checkbox:checked + label + .faq-content {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+.faq-toggle-checkbox:checked + label .faq-toggle {
+  transform: rotate(90deg);
+}
+.faq-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.faq-content p {
+  margin: 0;
+  line-height: 1.5;
+  color: #444;
+}
+
+.faq-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  width: 100%; /* 항상 꽉 차도록 설정 */
+  box-sizing: border-box;
+}
+
+.faq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
