@@ -128,24 +128,21 @@ section {
 }
 .logo-slider {
     overflow:hidden;
-    background-color:white;
-    padding: 2rem 0;
+    background-color:#f5f6f8;
+    padding: 1rem 0;
     width:100%;
-    max-width:1200px;
-    margin:0 auto;
+    height:80px;
 }
 .logo-track {
     display:flex;
-    width:fit-content;
-    animation:scrollLogos 10s steps(16) infinite;
+    animation:scrollLogos 16s steps(16) infinite;
+    gap:60px;
 }
 
 .logo-track img {
-    width:160px;
+    flex:0 0 270px;
     height:40px;
-    margin:0 20px;
-    flex-shrink:0;
-    transition:filter 0.3s ease;
+    object-fit:contain;
 }
 
 @keyframes scrollLogos {
@@ -153,7 +150,7 @@ section {
         transform: translateX(0);
     }
     100% {
-        transform:translateX(-50%);
+        transform:translateX(-1320px);
     }
 }
 
