@@ -35,7 +35,7 @@ h6 {
   filter: blur(0.5px) brightness(0.4) sepia(1) saturate(5) hue-rotate(190deg);;
 }
 
-.call-to-action .container {
+.call-to-action .cta-container {
   height: 345px;
   position: relative;
   z-index: 3;
@@ -47,7 +47,8 @@ h6 {
 .call-to-action h3 {
   color: white;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 1000;
+  margin-bottom: 15px;
 }
 
 .call-to-action p {
@@ -92,7 +93,7 @@ h6 {
 }
 
 @media (max-width: 1200px) {
-  .call-to-action .container {
+  .call-to-action .cta-container {
     flex-direction: column;
   }
   
@@ -118,13 +119,13 @@ h6 {
   overflow: clip;
 }
 
-.section-title {
+.pf-section-title {
   text-align: center;
   padding-bottom: 60px;
   position: relative;
 }
 
-.section-title h2 {
+.pf-section-title h2 {
   font-size: 32px;
   font-weight: 1000;
   margin-bottom: 20px;
@@ -133,7 +134,7 @@ h6 {
   position: relative;
 }
 
-.section-title h2:before {
+.pf-section-title h2:before {
   content: "";
   position: absolute;
   display: block; 
@@ -146,7 +147,7 @@ h6 {
   margin: auto;
 }
 
-.section-title h2::after {
+.pf-section-title h2::after {
   content: "";
   position: absolute;
   display: block;
