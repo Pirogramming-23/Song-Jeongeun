@@ -1,0 +1,74 @@
+#Aboutus {
+    padding:80px 0;
+    background:white;
+}
+.container {
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+}
+.section-title {
+    text-align:center;
+    font-size:2rem;
+    font-weight:700;
+    color:#37517e;
+    position:relative;
+    text-transform:40px;
+    margin-bottom: 40px;
+}
+
+.section-title::after {
+    content: '';
+    display:block;
+    width:60px;
+    height:2px;
+    background-color:#47b2e4;
+    margin: 8px auto 0;
+}
+
+.about-content {
+    display:flex;
+    flex-wrap:wrap;
+    gap:40px;
+    justify-content:space-between;
+}
+.about-left, .about-right {
+    flex:1 1 45%;
+}
+.about-list {
+    list-style:none;
+    padding:0;
+    margin-top:1rem;
+}
+.about-list li {
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:15px;
+    line-height:1.6;
+}
+.about-list svg {
+    min-width:20px;
+    min-height:20px;
+    margin-top:2px;
+}
+.about-left p, .about-right p, .about-list li span{
+    line-height:1.8;
+    text-align:left;
+}
+#readmore {
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 24px;
+    color:#47b2e4;
+    border:2px solid #47b2e4;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:600;
+    cursor:pointer;
+    transition:all 0.3s;
+}
+#readmore:hover {
+    background-color:#47b2e4;
+    color:white;
+}
