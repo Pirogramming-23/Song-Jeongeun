@@ -126,7 +126,7 @@ h6 {
 
 .section-title h2 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 1000;
   margin-bottom: 20px;
   padding-bottom: 20px;
   text-transform: uppercase;
@@ -136,7 +136,7 @@ h6 {
 .section-title h2:before {
   content: "";
   position: absolute;
-  display: block;
+  display: block; 
   width: 160px;
   height: 1px;
   background: color-mix(in srgb, #444444, transparent 60%);
