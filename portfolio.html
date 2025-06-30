@@ -11,7 +11,7 @@
 <body class="index-page">
   <main class="main">
     <section id="portfolio" class="portfolio section">
-      <div class="container section-title">
+      <div class="container section-title animate-on-load">
         <h2>Portfolio</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div>
@@ -23,17 +23,15 @@
             <input type="radio" name="portfolio-filter" id="filter-card">
             <input type="radio" name="portfolio-filter" id="filter-web">
 
-            <ul class="portfolio-filters">
+            <ul class="portfolio-filters animate-on-load">
                 <li><label for="filter-all">All</label></li>
                 <li><label for="filter-app">App</label></li>
                 <li><label for="filter-card">Card</label></li>
                 <li><label for="filter-web">Web</label></li>
             </ul>
 
-
-            <div class="photos">
-
-              <div class="app">
+            <div class="portfolio-photos">
+              <div class="app animate-on-load">
                 <img src="./img/app1.webp" class="img-fluid" alt="앱 포트폴리오 이미지 1">
                 <div class="portfolio-info">
                   <h4>App 1</h4>
@@ -44,7 +42,7 @@
                 </div>
               </div>
               
-              <div class="branding">
+              <div class="branding animate-on-load">
                 <img src="./img/branding2.webp" class="img-fluid" alt="브랜딩 포트폴리오 이미지 2">
                 <div class="portfolio-info">
                   <h4>Branding 2</h4>
@@ -56,7 +54,7 @@
                 </div>
               </div>
 
-              <div class="product">
+              <div class="product animate-on-load">
                 <img src="./img/product1.webp" class="img-fluid" alt="제품 포트폴리오 이미지 1">
                 <div class="portfolio-info">
                   <h4>Product 1</h4>
@@ -67,7 +65,7 @@
                       alt="상세보기 아이콘"></a>
                 </div>
               </div>
-              <div class="app">
+              <div class="app animate-on-load">
                 <img src="./img/app2.webp" class="img-fluid" alt="앱 포트폴리오 이미지 2">
                 <div class="portfolio-info">
                   <h4>App 2</h4>
@@ -77,7 +75,7 @@
                       alt="상세보기 아이콘"></a>
                 </div>
               </div>
-              <div class="app">
+              <div class="app animate-on-load">
                 <img src="./img/app3.webp" class="img-fluid" alt="앱 포트폴리오 이미지 3">
                 <div class="portfolio-info">
                   <h4>App 3</h4>
@@ -87,7 +85,7 @@
                       alt="상세보기 아이콘"></a>
                 </div>
               </div>
-              <div class="branding">
+              <div class="branding animate-on-load">
                 <img src="./img/branding3.webp" class="img-fluid" alt="브랜딩 포트폴리오 이미지 3">
                 <div class="portfolio-info">
                   <h4>Branding 3</h4>
@@ -98,7 +96,7 @@
                       alt="상세보기 아이콘"></a>
                 </div>
               </div>
-              <div class="branding">
+              <div class="branding animate-on-load">
                 <img src="./img/branding1.webp" class="img-fluid" alt="브랜딩 포트폴리오 이미지 1">
                 <div class="portfolio-info">
                   <h4>Branding 1</h4>
@@ -109,7 +107,7 @@
                       alt="상세보기 아이콘"></a>
                 </div>
               </div>
-              <div class="product">
+              <div class="product animate-on-load">
                 <img src="./img/product2.webp" class="img-fluid" alt="제품 포트폴리오 이미지 2">
                 <div class="portfolio-info">
                   <h4>Product 2</h4>
@@ -121,7 +119,7 @@
                 </div>
               </div>
 
-              <div class="product">
+              <div class="product animate-on-load">
                 <img src="./img/product3.webp" class="img-fluid" alt="제품 포트폴리오 이미지 3">
                 <div class="portfolio-info">
                   <h4>Product 3</h4>
@@ -137,6 +135,14 @@
       </div>
     </section>
   </main>
-</body>
+<input type="checkbox" id="modal-toggle" hidden>
+<div class="modal">
+  <label for="modal-toggle" class="modal-overlay"></label>
+  <div class="modal-content">
+    <label for="modal-toggle" class="modal-close">✕</label>
+    <img src="" alt="확대 이미지" id="modal-img">
+  </div>
+</div>
 
+</body>
 </html>

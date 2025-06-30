@@ -1,36 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-:root {
-    --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --heading-font: "Jost", sans-serif;
-    --accent-color: #47b2e4;
-    --heading-color: #37517e;
-    --default-color: #444444;
-    --background-color: #ffffff;
-}
-
 body {
-    font-family: var(--default-font);
-    color: var(--default-color);
-    background-color: var(--background-color);
+    font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #444444;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
 
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-a:hover {
-    color: color-mix(in srgb, var(--accent-color), transparent 25%);
-}
 
 h1,
 h2,
 h3 {
-    font-family: var(--heading-font);
-    color: var(--heading-color);
+    font-family: "Jost", sans-serif;
+    color: #37517e;
 }
 
 .main {
@@ -41,6 +22,7 @@ h3 {
     max-width: 1320px;
     margin: 0 auto;
     padding: 10px 15px;
+    margin-top: 40px;
 }
 
 .row {
@@ -49,20 +31,20 @@ h3 {
     margin: 0 -15px;
 }
 
-.col-lg-8,
-.col-lg-4 {
+.portfolio-img-container,
+.portfolio-text-container {
     padding: 0 15px;
     box-sizing: border-box;
 }
 
-.col-lg-8 {
+.portfolio-img-container {
     display: flex;
     justify-content: center;
     flex: 0 0 66.666667%;
     max-width: 66.666667%;
 }
 
-.col-lg-4 {
+.portfolio-text-container {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
 }
@@ -104,12 +86,12 @@ h3 {
 }
 
 .breadcrumbs a {
-    color: var(--accent-color);
+    color: #47b2e4;
     text-decoration: none;
 }
 
 .breadcrumbs .current {
-    color: var(--heading-color);
+    color: #37517e;
     font-weight: 600;
 }
 
@@ -118,10 +100,13 @@ h3 {
     width: 416px;
     padding: 30px;
     margin-bottom: 30px;
+    box-sizing: border-box;
 }
 
 @media (max-width: 1400px) {
-
+    .slideandpagi {
+        width: 736px;
+    }
     .portfolio-info,
     .portfolio-description {
         width: 356px;
@@ -130,6 +115,9 @@ h3 {
 
 @media (max-width: 1200px) {
 
+    .slideandpagi {
+        width: 615px;
+    }
     .portfolio-info,
     .portfolio-description {
         width: 296px;
@@ -141,6 +129,8 @@ h3 {
     .portfolio-info,
     .portfolio-description {
         width: 691px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -171,7 +161,7 @@ h3 {
 
 .portfolio-info ul li strong {
     font-weight: 600;
-    color: var(--heading-color);
+    color: #37517e;
     margin-right: 5px;
 }
 
@@ -180,7 +170,7 @@ h3 {
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 15px;
-    color: var(--heading-color);
+    color: #37517e;
 }
 
 .portfolio-description p {
@@ -191,13 +181,24 @@ h3 {
 }
 
 @media (max-width: 991px) {
-    .col-lg-8,
-    .col-lg-4 {
+    .slide-container {
+        width: 100%;
+        height: auto;
+    }
+    .slide img {
+        width: 100%;
+        height: auto;
+    }
+    .portfolio-img-container,
+    .portfolio-text-container {
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .col-lg-4 {
+    .portfolio-text-container {
         margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
     }
 }
 
@@ -252,7 +253,7 @@ h3 {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: gray;
+    background-color: lightgray;
     cursor: pointer;
 }
 
@@ -282,6 +283,22 @@ h3 {
     }
 
     25.01%, 100% {
-        background-color: gray;
+        background-color: lightgray;
     }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-load {
+  animation: slideUp 0.8s ease-out forwards;
 }

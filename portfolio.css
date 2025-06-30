@@ -1,44 +1,11 @@
 :root {
-  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Jost", sans-serif;
-  --nav-font: "Poppins", sans-serif;
-  --background-color: #ffffff;
-  --default-color: #444444;
-  --heading-color: #37517e;
-  --accent-color: #47b2e4;
-  --surface-color: #ffffff;
-  --contrast-color: #ffffff;
   scroll-behavior: smooth;
 }
 
-.light-background {
-  --background-color: #f5f6f8;
-  --surface-color: #ffffff;
-}
-
-.dark-background {
-  --background-color: #37517e;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #4668a2;
-  --contrast-color: #ffffff;
-}
-
 body {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-family: var(--default-font);
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  text-decoration: none;
+  color: #444444;
+  background-color: white;
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 }
 
 h1,
@@ -47,24 +14,16 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color);
-  font-family: var(--heading-font);
+  color: #37517e;
+  font-family: "Jost", sans-serif;
 }
 
-section,
-.section {
-  color: var(--default-color);
-  background-color: var(--background-color);
+#portfolio {
+  color: #444444;
+  background-color: white;
   padding: 60px 0;
   scroll-margin-top: 88px;
   overflow: clip;
-}
-
-@media (max-width: 1199px) {
-  section,
-  .section {
-    scroll-margin-top: 66px;
-  }
 }
 
 .section-title {
@@ -88,7 +47,7 @@ section,
   display: block;
   width: 160px;
   height: 1px;
-  background: color-mix(in srgb, var(--default-color), transparent 60%);
+  background: color-mix(in srgb, #444444, transparent 60%);
   left: 0;
   right: 0;
   bottom: 1px;
@@ -101,7 +60,7 @@ section,
   display: block;
   width: 60px;
   height: 3px;
-  background: var(--accent-color);
+  background: #47b2e4;
   left: 0;
   right: 0;
   bottom: 0;
@@ -112,94 +71,96 @@ section,
   margin-bottom: 0;
 }
 
-.portfolio-filter-wrapper > input[type="radio"] {
-    display: none;
+.portfolio-filter-wrapper>input[type="radio"] {
+  display: none;
 }
 
 .portfolio-filters {
-    padding: 0;
-    margin: 0 auto 20px auto;
-    list-style: none;
-    text-align: center;
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
 }
 
 .portfolio-filters li {
-    display: inline-block;
-    padding: 8px 20px 10px 20px;
-    margin: 0; 
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: 5px;
-    border-radius: 50px;
-    transition: all 0.3s ease-in-out;
-    font-family: var(--heading-font);
-    cursor: pointer; 
-}
-.portfolio-filters li:hover {
-  background-color: var(--accent-color);
-  color: white;
-}
-#filter-all:checked ~ .portfolio-filters li:nth-child(1),
-#filter-app:checked ~ .portfolio-filters li:nth-child(2),
-#filter-card:checked ~ .portfolio-filters li:nth-child(3),
-#filter-web:checked ~ .portfolio-filters li:nth-child(4) {
-    color: var(--contrast-color);
-    background-color: var(--accent-color);
+  display: inline-block;
+  padding: 8px 20px 10px 20px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 5px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  font-family: "Jost", sans-serif;
+  cursor: pointer;
 }
 
-.photos {
+.portfolio-filters li:hover {
+  background-color: #47b2e4;
+  color: white;
+}
+
+#filter-all:checked~.portfolio-filters li:nth-child(1),
+#filter-app:checked~.portfolio-filters li:nth-child(2),
+#filter-card:checked~.portfolio-filters li:nth-child(3),
+#filter-web:checked~.portfolio-filters li:nth-child(4) {
+  color: white;
+  background-color: #47b2e4;
+}
+
+.portfolio-photos {
   margin: 0 auto;
-  column-count: 3; 
+  column-count: 3;
   column-gap: 20px;
-  max-width: 1300px; 
+  max-width: 1300px;
 }
 
 @media (max-width: 990px) {
-  .photos {
+  .portfolio-photos {
     column-count: 2;
   }
 }
 
 @media (max-width: 768px) {
-  .photos {
+  .portfolio-photos {
     column-count: 1;
   }
 }
 
 
-.photos > div {
-    opacity: 0; 
-    visibility: hidden; 
-    max-height: 0; 
-    margin-bottom: 0; 
-    overflow: hidden; 
-    transform: scale(0.8); 
-    
-    transition: opacity 0.2s ease-out,
-                max-height 0.2s ease-out,
-                margin-bottom 0.2s ease-out,
-                transform 0.2s ease-out, 
-                visibility 0s linear 0.2s; 
+.portfolio-photos > div {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  transform: scale(0.8);
+
+  transition: opacity 0.2s ease-out,
+    max-height 0.2s ease-out,
+    margin-bottom 0.2s ease-out,
+    transform 0.2s ease-out,
+    visibility 0s linear 0.2s;
 }
 
-#filter-all:checked ~ .photos > div,
-#filter-app:checked ~ .photos > .app,
-#filter-card:checked ~ .photos > .product,
-#filter-web:checked ~ .photos > .branding { 
-    opacity: 1; 
-    visibility: visible;
-    max-height: 1000px;
-    margin-bottom: 20px;
-    transform: scale(1); 
-    transition: opacity 0.2s ease-out,
-                max-height 0.2s ease-out,
-                margin-bottom 0.2s ease-out,
-                transform 0.2s ease-out, 
-                visibility 0s linear 0s; 
+#filter-all:checked~.portfolio-photos>div,
+#filter-app:checked~.portfolio-photos>.app,
+#filter-card:checked~.portfolio-photos>.product,
+#filter-web:checked~.portfolio-photos>.branding {
+  opacity: 1;
+  visibility: visible;
+  max-height: 1000px;
+  margin-bottom: 20px;
+  transform: scale(1);
+  transition: opacity 0.2s ease-out,
+    max-height 0.2s ease-out,
+    margin-bottom 0.2s ease-out,
+    transform 0.2s ease-out,
+    visibility 0s linear 0s;
 }
 
-.photos > div img {
+.portfolio-photos > div img {
   width: 100%;
   height: auto;
   display: block;
@@ -208,7 +169,7 @@ section,
 .img-fluid {
   height: auto;
   display: block;
-  object-fit: contain; 
+  object-fit: contain;
 }
 
 .portfolio-info {
@@ -216,19 +177,19 @@ section,
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0; 
+  bottom: 0;
   z-index: 3;
   transform: translateY(100%);
   transition: all ease-in-out 0.25s;
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background: color-mix(in srgb, white, transparent 30%);
   padding: 10px 15px;
   box-sizing: border-box;
   height: 80px;
 }
 
-.photos > div:hover .portfolio-info {
+.portfolio-photos > div:hover .portfolio-info {
   opacity: 1;
-  transform: translateY(0); 
+  transform: translateY(0);
 }
 
 .portfolio-info h4 {
@@ -249,41 +210,58 @@ section,
 
 .portfolio-info .zoom-in,
 .portfolio-info .details-link {
-    position: absolute;
-    top: calc(50% - 14px);
-    z-index: 4;
-    transition: 0.3s;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  top: calc(50% - 14px);
+  z-index: 4;
+  transition: 0.3s;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .portfolio-info .zoom-in {
-    right: 60px;
+  right: 60px;
 }
 
 .portfolio-info .details-link {
-    right: 20px;
+  right: 20px;
 }
 
 .portfolio-info .zoom-in img,
 .portfolio-info .details-link img {
-    width: 28px;
-    height: 28px;
-    filter: invert(0.9) brightness(0.6);
-    transition: filter 0.3s;
+  width: 28px;
+  height: 28px;
+  filter: invert(0.9) brightness(0.6);
+  transition: filter 0.3s;
 }
 
 .portfolio-info .zoom-in:hover img,
 .portfolio-info .details-link:hover img {
-    filter: invert(30%) sepia(100%) saturate(1500%) hue-rotate(180deg) brightness(1.2); 
+  filter: invert(30%) sepia(100%) saturate(1500%) hue-rotate(180deg) brightness(1.2);
 }
+
 .portfolio-filters label {
   cursor: pointer;
 }
 
 .portfolio-filters label:hover {
-  background-color: var(--accent-color);
+  background-color: #47b2e4;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-load {
+  animation: slideUp 0.8s ease-out forwards;
 }
