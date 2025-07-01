@@ -1,0 +1,13 @@
+# 다른 모든 폴더와 파일 무시
+/arsha/
+/css/
+/extra-page/
+/img/
+/Song-Jeongeun/
+main.html
+portfolio.css
+*.txt
+*.log
+
+# 오직 이 폴더만 Git이 추적하도록 허용
+!Javascript 쇼핑몰 미니게임 과제/
