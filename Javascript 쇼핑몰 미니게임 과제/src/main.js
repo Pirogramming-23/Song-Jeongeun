@@ -21,12 +21,39 @@ function createHTMLString(item){
     `;
 }
 
+function onButtonClick(event, items){
+
+    const dataset = event.target.dataset;
+    const key = dataset.key;
+    const value = dataset.value;
+
+    if(key==null||value==null){
+        return; //함수 끝냄
+    }
+
+    const filtered = items.filter(item => item[key] === value);//불러온 item의 배열에서 조건에 맞는 요소들만 새로운 작은 배열로 반환 item/조건- item의 속성이 value와 같나(ex. 파란색바지 찾기)
+    displayItems(filtered);//
+
+    console.log(event.target.dataset.key);//event(클릭시 발생함) 의 클릭된 그target(클릭한 실제html요소)의 dataset의 key내용을 출력
+    console.log(event.target.dataset.value);
+
+
+}
+
+//클릭시 동작 처리
+function setEventListeners(items){
+    const logo = document.querySelector('.logo');//html에서 class 가 logo인 것들찾아 logo에 저장
+    const buttons = document.querySelector('.buttons');//html에서 class 가 buttons인 것들찾아 buttons에 저장
+    logo.addEventListener('click',() => displayItems(items));//logo 클릭시 displayItems함수 실행
+    buttons.addEventListener('click', event => onButtonClick(event, items));//button,클릭시실행함수연결, event(어떤버튼 클릭?)라는 정보 받아서 item와 함께 onbuttonClick에 넘김
+}
+
 //main
 loadItems()
 .then(items => {
     console.log(items);
     displayItems(items);
-   // setEventListeners(itmes)
+    setEventListeners(items)
 })
 
 .catch(console.log)
