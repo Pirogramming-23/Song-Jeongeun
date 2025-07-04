@@ -1,0 +1,79 @@
+body {
+  font-family: 'Pretendard', sans-serif;
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 360px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+}
+
+.stopwatch-box {
+  background: #bfc7bd;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #aaa;
+  text-align: center;
+}
+
+.time-display {
+  background: #fff;
+  border-radius: 12px;
+  font-size: 40px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  min-width: 150px;
+}
+
+.button-group button {
+  margin: 0 5px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 12px;
+  background: #eee;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px #999;
+}
+
+.record-box {
+  background: #bfc7bd;
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin-top: 30px;
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  padding-bottom: 8px;
+}
+
+#recordList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#recordList li {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+#recordList li input[type="checkbox"] {
+  margin-right: 10px;
+}
