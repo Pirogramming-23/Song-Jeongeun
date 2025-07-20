@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <title class="logo">Pirostagram</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo">pirostagram</div>
+    <form class="search-box" method="GET" action="#">
+      <input type="text" id="search-input" placeholder="검색" oninput="searchPosts()" />
+    </form>
+  </header>
+
+  <div class="page-container" id="post-list">
+    {% include 'main/partial_post_list.html' %}
+  </div>
+
+    <script src="{% static 'js/ajax.js' %}"></script>
+    <a href="{% url 'main:create_post' %}" class="floating-button">+</a>
+
+</body>
+</html>
+

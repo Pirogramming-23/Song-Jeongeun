@@ -1,0 +1,63 @@
+    {% load static %}
+    {% for post in posts %}
+      <div class="post-card">
+        <!-- 작성자 정보 -->
+        <div class="post-header">
+          <img class="profile-img" src="{% if post.author.profile.image %}{{ post.author.profile.image.url }}{% else %}{% static 'image/default_profile.png' %}{% endif %}" alt="프로필">
+          <span class="username">{{ post.author.username }}</span>
+          <span class="time">· {{ post.created_at|timesince }} 전</span>
+        </div>
+
+        <!-- 게시글 이미지 -->
+        <div class="post-image">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="게시물 이미지">
+        {% else %}
+            <img src="{% static 'image/default.png' %}" alt="기본 게시물 이미지">
+        {% endif %}
+        </div>
+
+
+
+        <!-- 아이콘 (하트, 댓글) -->
+        <div class="post-icons">
+          <span onclick="toggleLike({{ post.id }})" id="like-button-{{ post.id }}">❤️</span>
+          <span>💬</span>
+        </div>
+
+        <!-- 좋아요 수 -->
+        <div class="like-count">
+          <span id="like-count-{{ post.id }}">{{ post.like_count }}</span>명이 좋아합니다
+        </div>
+
+        <!-- 글 내용 -->
+        <div class="post-caption">
+          <strong>{{ post.author.username }}</strong> {{ post.caption }}
+        </div>
+
+        <!-- 댓글 개수 표시 + 보기 버튼 -->
+        {% if post.comments.count > 1 %}
+        <div class="view-all" onclick="toggleComments({{ post.id }})">
+            댓글 {{ post.comments.count }}개 모두 보기
+        </div>
+        {% endif %}
+
+        <!-- 댓글 목록 (전체 표시 중) -->
+        <ul id="comment-list-{{ post.id }}" class="comment-list" style="display: none;">
+            {% for comment in post.comments.all %}
+                <li id="comment-{{ comment.id }}">
+                <span><strong>{{ comment.author.username }}</strong> {{ comment.content }}</span>
+                <button onclick="deleteComment({{ comment.id }})">삭제</button>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- 댓글 입력 -->
+        {% if user.is_authenticated %}
+          <div class="comment-input">
+            <input type="text" id="comment-input-{{ post.id }}" placeholder="댓글 달기..." />
+            <button onclick="submitComment({{ post.id }})">게시</button>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}

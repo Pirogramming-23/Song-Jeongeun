@@ -1,0 +1,210 @@
+/* 전체 페이지 배경 */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ 상단 바 */
+.top-bar {
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.search-box input {
+    background-color: #262626;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+/* ✅ 메인 피드 컨테이너 */
+.page-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
+
+/* ✅ 게시글 카드 */
+.post-card {
+    background-color: #000000;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 24px;
+}
+
+/* 프로필 영역 */
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 게시글 이미지 */
+.post-image {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+/* 아이콘 영역 */
+.post-icons {
+    margin-top: 8px;
+    font-size: 22px;
+    display: flex;
+    gap: 14px;
+    cursor: pointer;
+}
+
+/* 좋아요 수 */
+.like-count {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #e6e6e6;
+}
+
+/* 설명 */
+.post-caption {
+    font-size: 14px;
+    margin-top: 6px;
+    color: #ddd;
+}
+
+/* 댓글 "n개 모두 보기" */
+.view-all {
+  color: #aaa;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.view-all:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.view-all-comments {
+    font-size: 13px;
+    color: #999;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+/* 댓글 목록 */
+.comment-list {
+  list-style: none;        /* ● 점 제거 */
+  margin: 0;
+  padding: 0;
+}
+
+.comment-list li {
+  text-align: left;        /* 왼쪽 정렬 */
+  padding: 4px 0;
+  display: flex;           /* 댓글 내용과 삭제 버튼 정렬 */
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+
+.comment-list button {
+    font-size: 12px;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 댓글 입력 */
+.comment-input {
+    display: flex;
+    margin-top: 10px;
+}
+
+.comment-input input {
+    flex: 1;
+    background: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    margin-right: 6px;
+}
+
+.comment-input button {
+    background: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* 게시글 작성 버튼 */
+
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #000000; /* 인스타 파랑 */
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  text-decoration: none;
+}
+.floating-button:hover {
+  background-color: #202020;
+}
+
+.logo {
+  font-family: 'Pacifico'; cursive;
+  font-size: 28px;
+  color: #ffffff;
+}

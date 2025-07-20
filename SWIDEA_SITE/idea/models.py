@@ -12,7 +12,15 @@ class Idea(models.Model):
     
     def __str__(self):
         return str(self.title)
+class IdeaStar(models.Model):
+    idea = models.ForeignKey(Idea, on_delete=models.CASCADE, related_name='ideastar')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ('idea', 'user')  # 중복 찜 방지
+
+    def __str__(self):
+        return f"{self.user.username} → {self.idea.title}"
 
 
 
