@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+  {% if form.instance.pk %}
+    아이디어 수정
+  {% else %}
+    아이디어 등록
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% if form.instance.pk %}
+      Idea Detail Update
+    {% else %}
+      Idea Register
+    {% endif %}
+  </h2>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label for="id_title">아이디어명:</label><br>
+    {{ form.title }}<br><br>
+
+    <label for="id_image">Image:</label><br>
+    {% if form.instance.image %}
+      현재: <img src="{{ form.instance.image.url }}" width="120"><br>
+      변경: {{ form.image }}<br><br>
+    {% else %}
+      {{ form.image }}<br><br>
+    {% endif %}
+
+    <label for="id_content">아이디어 설명:</label><br>
+    {{ form.content }}<br><br>
+
+    <label for="id_interest">아이디어 관심도:</label><br>
+    {{ form.interest }}<br><br>
+
+    <label for="id_devtool">예상 개발툴:</label><br>
+    {{ form.devtool }}<br><br>
+
+    <button type="submit">SUBMIT</button>
+  </form>
+{% endblock %}

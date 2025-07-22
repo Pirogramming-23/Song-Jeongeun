@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>My SW Idea Manage</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <nav>
+    <div class="logo">My SW Idea Manage</div>
+    <ul>
+      <li><a href="{% url 'idea:idea_list' %}">아이디어 관리</a></li>
+      <li><a href="{% url 'idea:idea_create' %}">아이디어 등록</a></li>
+      <li><a href="{% url 'devtool:devtool_list' %}">개발툴 관리</a></li>
+      <li><a href="{% url 'devtool:devtool_create' %}">개발툴 등록</a></li>
+    </ul>
+  </nav>
+
+  <main>
+        <h1>{% block page_title %}페이지 제목{% endblock %}</h1>
+
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

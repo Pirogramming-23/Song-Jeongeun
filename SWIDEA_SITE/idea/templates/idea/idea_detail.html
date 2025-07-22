@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}아이디어 상세{% endblock %}
+
+{% block content %}
+  <h2 class="section-title">Idea Detail</h2>
+  <p class="section-subtitle">아이디어 세부정보를 확인할 수 있습니다. 또한, 아래 버튼으로 아이디어를 삭제하거나 수정할 수 있습니다.</p>
+
+  <div class="idea-box">
+    {% if idea.image %}
+      <img src="{{ idea.image.url }}" alt="썸네일" width="150">
+    {% else %}
+      <img src="{% static 'img/default.jpg' %}" alt="기본 이미지" width="150">
+    {% endif %}
+
+    <h3>{{ idea.title }} ⭐</h3>
+
+    <p><strong>1) 아이디어 관심도</strong><br>{{ idea.interest }}</p>
+    <p><strong>2) 예상 개발툴</strong><br>{{ idea.devtool.name }}
+        <a href="{% url 'devtool:devtool_detail' idea.devtool.id %}">
+            {{ idea.devtool.name }}
+        </a></p>
+    <p><strong>3) 아이디어 설명</strong><br>{{ idea.content }}</p>
+
+    <div class="button-group">
+      <form method="post" action="{% url 'idea:idea_delete' idea.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn-delete">삭제</button>
+      </form>
+      <a href="{% url 'idea:idea_delete' idea.id %}" class="btn-delete">삭제</a>
+      <a href="{% url 'idea:idea_list' %}" class="btn-list">목록</a>
+      <a href="{% url 'idea:idea_update' idea.id %}" class="btn-edit">수정</a>
+      
+
+    </div>
+  </div>
+{% endblock %}

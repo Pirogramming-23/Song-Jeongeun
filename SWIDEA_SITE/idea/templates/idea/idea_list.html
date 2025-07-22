@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}아이디어 목록{% endblock %}
+
+{% block content %}
+  <h2>아이디어 목록</h2>
+
+  <form method="get" style="margin-bottom: 20px;">
+    <select name="sort" onchange="this.form.submit()">
+      <option value="">--정렬기준--</option>
+      <option value="interest" {% if sort == 'interest' %}selected{% endif %}>관심도순</option>
+      <option value="latest" {% if sort == 'latest' %}selected{% endif %}>최신순</option>
+      <option value="name" {% if sort == 'name' %}selected{% endif %}>이름순</option>
+    </select>
+  </form>
+
+  {% for idea in ideas %}
+    <div class="idea-item">
+      <h3><a href="{% url 'idea:idea_detail' idea.id %}">{{ idea.title }}</a></h3>
+
+
+      {% if idea.image %}
+        <img src="{{ idea.image.url }}" alt="썸네일" width="200">
+      {% else %}
+        <img src="{% static 'img/default.jpg' %}" alt="기본 이미지" width="200">
+      {% endif %}
+
+      <p><strong>설명:</strong> {{ idea.content }}</p>
+      <p>
+        <strong>관심도:</strong> 
+        <span id="interest-count-{{ idea.id }}">{{ idea.interest }}</span>
+        <button onclick="changeInterest('{{ idea.id }}', 'plus')">+</button>
+        <button onclick="changeInterest('{{ idea.id }}', 'minus')">-</button>
+      </p>
+      <p><strong>개발툴:</strong> {{ idea.devtool.name }}</p>
+    </div>
+    <hr>
+  {% endfor %}
+{% endblock %}
+
+<script>
+  function adjustInterest(ideaId, action) {
+    fetch(`/idea/${ideaId}/adjust_interest/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}'
+      },
+      body: JSON.stringify({ "action": action })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        document.getElementById(`interest-count-${ideaId}`).innerText = data.new_interest;
+      } else {
+        alert("실패했습니다.");
+      }
+    });
+  }
+</script>

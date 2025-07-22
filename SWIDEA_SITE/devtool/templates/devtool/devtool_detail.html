@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+  DevTool Detail
+{% endblock %}
+
+{% block content %}
+  <h2 class="section-title">DevTool Detail</h2>
+  <p class="section-subtitle">
+    개발툴 상세 페이지입니다. 개발툴 이름과 설명, 해당 개발툴을 사용하는 소프트웨어 아이디어들을 확인해보세요.
+  </p>
+
+  <div class="devtool-box">
+    <h3>{{ devtool.name }}</h3>
+    <p><strong>분류:</strong> {{ devtool.kind }}</p>
+    <p><strong>설명:</strong> {{ devtool.content }}</p>
+
+    <h4>💡 만들 수 있는 SW 목록</h4>
+    <ul>
+      {% for idea in ideas %}
+        <li>
+          <a href="{% url 'idea:idea_detail' idea.id %}">
+            {{ idea.title }}
+          </a>
+        </li>
+      {% empty %}
+        <li>관련 아이디어가 없습니다.</li>
+      {% endfor %}
+    </ul>
+
+    <div class="devtool-buttons" style="margin-top: 20px;">
+      <a href="{% url 'devtool:devtool_delete' devtool.id %}" class="btn btn-danger">삭제</a>
+      <a href="{% url 'devtool:devtool_list' %}" class="btn btn-secondary">목록</a>
+      <a href="{% url 'devtool:devtool_update' devtool.id %}" class="btn btn-primary">수정</a>
+    </div>
+  </div>
+{% endblock %}

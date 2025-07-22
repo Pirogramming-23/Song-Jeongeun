@@ -1,13 +1,26 @@
 # 다른 모든 폴더와 파일 무시
+/Ajax 선행 강의/
+/djangogirls/
+/Javascript 쇼핑몰 미니게임 과제/
+/Javascript 스톱워치 과제/
+/myMovieReviews/
+/python_problem
+/SellingCommunity_ERD/
+/Song-Jeongeun/
+/SWIDEA_SITE/
+/숫자야구게임/
+/제로초 인강/
+/파이썬 과제/
+/피로그래밍 홈페이지/
 /arsha/
 /css/
 /extra-page/
 /img/
-/Song-Jeongeun/
+
 main.html
 portfolio.css
 *.txt
 *.log
 
 # 오직 이 폴더만 Git이 추적하도록 허용
-!Javascript 쇼핑몰 미니게임 과제/
+!piro23_Ajax_Pirostagram/

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+  DevTool List
+{% endblock %}
+
+{% block content %}
+  <div class="devtool-list-container">
+    <h2 class="section-title">DevTool List</h2>
+    <p class="section-subtitle">
+      개발툴 목록을 확인할 수 있습니다. 원하는 개발툴을 클릭하면 상세 정보를 확인할 수 있어요.
+    </p>
+
+    <div class="devtool-list">
+      {% for devtool in devtools %}
+        <div class="devtool-item">
+          <div class="devtool-name">
+            <a href="{% url 'devtool:devtool_detail' devtool.pk %}">{{ devtool.name }}</a>
+          </div>
+          <div class="devtool-kind">
+            {{ devtool.kind }}
+          </div>
+          <div class="devtool-desc">
+            {{ devtool.content|truncatechars:80 }}
+          </div>
+        </div>
+        <hr>
+      {% empty %}
+        <p>등록된 개발툴이 없습니다.</p>
+      {% endfor %}
+    </div>
+
+  </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+  {% if form.instance.pk %}
+    DevTool Update
+  {% else %}
+    DevTool Register
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h2 class="section-title">
+    {% if form.instance.pk %}
+      DevTool Update
+    {% else %}
+      DevTool Register
+    {% endif %}
+  </h2>
+
+  <p class="section-subtitle">
+    개발툴 등록/수정 페이지입니다. 정보를 입력한 후 제출하세요.
+  </p>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <label for="id_name">이름:</label><br>
+    {{ form.name }}<br><br>
+
+    <label for="id_kind">분류:</label><br>
+    {{ form.kind }}<br><br>
+
+    <label for="id_content">개발툴 설명:</label><br>
+    {{ form.content }}<br><br>
+
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+  </form>
+{% endblock %}

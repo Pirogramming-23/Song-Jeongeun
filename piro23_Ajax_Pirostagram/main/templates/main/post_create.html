@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+</head>
+<body>
+    <h2>📸 새 게시글 작성</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    설명: <input type="text" name="caption"><br>
+    이미지: <input type="file" name="image"><br>  <!-- multiple 제거 -->
+    <button type="submit">게시</button>
+    </form>
+
+
+    <a href="{% url 'main:post_list' %}">← 돌아가기</a>
+</body>
+</html>
